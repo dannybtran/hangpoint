@@ -1,0 +1,15 @@
+body {
+  padding: 10px;
+}
+
+#participants td {
+  text-align: center;
+}
+
+#clear {
+  float: right;
+}
+
+#reveal, #hide {
+  margin-right: 5px;
+}
