@@ -38,7 +38,8 @@
           // ... : no vote
           // ?   : hidden vote
           // N   : shown vote
-          label = (points ? (show_points ? points : '?') : '&hellip;'),
+          label = (typeof points == 'number' ?
+            (show_points ? points : '?') : '&hellip;'),
           $name = $('<th/>',{text: participant.person.displayName}),
           $vote = $('<td/>',{
             html: (participant.id == myID && points ? points : label)})
@@ -111,12 +112,12 @@
     var delta = {}, options = options || {}
 
     // send personal points
-    if (options['my_points']) {
+    if (options.hasOwnProperty('my_points')) {
       delta['points_'+myID] = JSON.stringify(options['my_points'])
     }
 
     // send all points
-    if (options['all_points']) {
+    if (options.hasOwnProperty('all_points')) {
       for(var k in all_points) {
         delta[k] = JSON.stringify(all_points[k])
       }
