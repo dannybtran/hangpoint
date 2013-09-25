@@ -42,7 +42,8 @@
             (show_points ? points : '?') : '&hellip;'),
           $name = $('<th/>',{text: participant.person.displayName}),
           $vote = $('<td/>',{
-            html: (participant.id == myID && points ? points : label)})
+            html: (participant.id == myID && typeof points == 'number' ?
+              points : label)})
       $row.append($name)
       $row.append($vote)
       $table.append($row)
